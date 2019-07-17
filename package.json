@@ -2,7 +2,7 @@
   "name": "spellit",
   "version": "1.0.0",
   "description": "Number spelling",
-  "main": "cli.js",
+  "main": "converter.js",
   "scripts": {
     "test": "ava",
     "test:watch": "ava --watch"

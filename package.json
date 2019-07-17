@@ -4,7 +4,8 @@
   "description": "Number spelling",
   "main": "cli.js",
   "scripts": {
-    "test": "ava --watch"
+    "test": "ava",
+    "test:watch": "ava --watch"
   },
   "repository": {
     "type": "git",

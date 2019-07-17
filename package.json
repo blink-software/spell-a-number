@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.blinksoft.pl/wojciechkalebasiak/slownie"
+    "url": "git+https://github.com/blink-software/spellit.git"
   },
-  "author": "",
+  "author": "Blink Software <hello@blinksoft.pl>",
   "bin": {
     "spellit": "./cli.js"
   },

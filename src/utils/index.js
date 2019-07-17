@@ -1,8 +1,10 @@
-
 function isFinite(value) {
-	return !(typeof value !== 'number' ||
-	value !== value || value === Infinity ||
-	value === -Infinity);
+	return !(
+		typeof value !== 'number' ||
+		value !== value ||
+		value === Infinity ||
+		value === -Infinity
+	);
 }
 
 function isFloat(number) {

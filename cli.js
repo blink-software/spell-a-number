@@ -18,8 +18,7 @@ try {
 	output = chosenConverter(number);
 
 	console.log(output);
-}
-catch (e) {
+} catch (e) {
 	printHelp();
 
 	console.error(e);

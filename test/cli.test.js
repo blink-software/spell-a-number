@@ -1,4 +1,4 @@
-const {exec} = require('child_process');
+const { exec } = require('child_process');
 import test from 'ava';
 
 test.cb('it should print number spelling for provided language', t => {
@@ -50,4 +50,3 @@ test.cb('it should print error if not supported language provided', t => {
 		t.end();
 	});
 });
-

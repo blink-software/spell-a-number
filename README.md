@@ -45,3 +45,7 @@ console.log(englishConverter(256)); // two hundred fifty-six
 ```bash
 $ npm test
 ```
+
+# License
+
+ISC

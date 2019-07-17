@@ -1,0 +1,74 @@
+{
+	"extends": "idiomatic",
+	"parserOptions": {
+		"sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+		"ecmaVersion": 2017
+	},
+	"plugins": [
+		"react"
+	],
+	"rules": {
+		"quotes": [
+			"error", "single",
+			{
+				"avoidEscape": true
+			}
+		],
+		"indent": [
+			2,
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"max-len": [
+			2,
+			{
+				"code": 100,
+				"comments": 120,
+				"ignoreUrls": true,
+				"ignoreRegExpLiterals": true
+			}
+		],
+		"eol-last": 2,
+		"no-trailing-spaces": 2,
+		"no-multi-spaces": 2,
+		"key-spacing": [
+			2,
+			{
+				"afterColon": true
+			}
+		],
+		"comma-dangle": [
+			1,
+			"always-multiline"
+		],
+		"semi": [
+			2,
+			"always"
+		],
+		"no-cond-assign": ["error", "except-parens"],
+		"block-spacing": [2, "always"],
+		"space-in-parens": [2, "never"],
+		"dot-notation": 0,
+		"func-names": 0,
+		"one-var": 0,
+		"vars-on-top": 0,
+		"computed-property-spacing": [2, "never"],
+		"curly": 0,
+		"no-inline-comments": 0,
+		"one-var-declaration-per-line": 0,
+		"space-unary-ops": [
+			2, {
+				"words": false
+			}],
+		"brace-style": 0,
+		"array-bracket-spacing": [2, "never"],
+		"object-curly-spacing": [2, "never"],
+		"dot-location": [2, "property"]
+	}
+}
+

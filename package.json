@@ -1,0 +1,21 @@
+{
+  "name": "spellit",
+  "version": "1.0.0",
+  "description": "Number spelling",
+  "main": "cli.js",
+  "scripts": {
+    "test": "ava --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.blinksoft.pl/wojciechkalebasiak/slownie"
+  },
+  "author": "",
+  "bin": {
+    "spellit": "./cli.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^1.2.1"
+  }
+}

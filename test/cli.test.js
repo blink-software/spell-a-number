@@ -1,7 +1,7 @@
 const { exec } = require('child_process');
 import test from 'ava';
 
-test.cb('it should print number spelling for provided language', t => {
+test.cb('it should print number spelling for the provided language', t => {
 	exec('/usr/lib/node_modules/spellit/cli.js 215 pl', (err, stdout) => {
 		t.is(stdout, 'dwieście piętnaście\n');
 

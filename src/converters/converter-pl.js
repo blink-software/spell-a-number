@@ -1,8 +1,8 @@
 const parsedAndValid = require('../utils').parsedAndValid;
 const getDecimalPartIfNeeded = require('../utils').getDecimalIfNeeded;
-const getMinuseIfNeeded = require('../utils').getMinusIfNeeded;
+const getMinusIfNeeded = require('../utils').getMinusIfNeeded;
 
-const HOUNDREDS = [
+const HUNDREDS = [
 	'',
 	'sto ',
 	'dwieście ',
@@ -12,11 +12,11 @@ const HOUNDREDS = [
 	'sześćset ',
 	'siedemset ',
 	'osiemset ',
-	'dziewięcset ',
+	'dziewięćset ',
 ];
 
 const LESS_THAN_TWENTY = [
-	'dziesięc ',
+	'dziesięć ',
 	'jedenaście ',
 	'dwanaście ',
 	'trzynaście ',
@@ -38,7 +38,7 @@ const TENTHS = [
 	'sześćdziesiąt ',
 	'siedemdziesiąt ',
 	'osiemdziesiąt ',
-	'dziewiecdziesiąt ',
+	'dziewięćdziesiąt ',
 ];
 
 const UNITS = [
@@ -67,14 +67,14 @@ const AMOUNTS = [
 ];
 
 // Generate updated spelling string and id for AMOUNT
-function updateStringAndGetAmountID(houndreds, tenths, units, currentString) {
+function updateStringAndGetAmountID(hundreds, tenths, units, currentString) {
 	let id;
 
-	if (!tenths && !houndreds) {
+	if (!tenths && !hundreds) {
 		if (units === 0) id = 0;
 	}
 
-	if (HOUNDREDS[houndreds]) currentString = currentString + HOUNDREDS[houndreds];
+	if (HUNDREDS[hundreds]) currentString = currentString + HUNDREDS[hundreds];
 
 	if (tenths == 1 && LESS_THAN_TWENTY[units]) {
 		currentString = currentString + LESS_THAN_TWENTY[units];
@@ -135,7 +135,7 @@ function generateWords(number) {
 	const decimalPart = getDecimalPartIfNeeded(number);
 	words = decimalPart ? words + ' ' + decimalPart : words;
 
-	const minus = getMinuseIfNeeded(number);
+	const minus = getMinusIfNeeded(number);
 	words = minus ? minus + ' ' + words : words;
 
 	return words;

@@ -43,6 +43,7 @@ console.log(englishConverter(256)); // two hundred fifty-six
 # Tests
 
 ```bash
+$ npm link
 $ npm test
 ```
 

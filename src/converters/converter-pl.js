@@ -67,7 +67,15 @@ const AMOUNTS = [
 ];
 
 // Generate updated spelling string and id for AMOUNT
-function updateStringAndGetAmountID(hundreds, tenths, units, currentString) {
+// ***
+// The role of `i` is to describe which group of three digits
+// we're currently processing.
+// Given 1000 -> 001 000
+//        i =     1   0
+// Given 1 -> 001
+//       i =   0
+// ***
+function updateStringAndGetAmountID(hundreds, tenths, units, currentString, i) {
 	let id;
 
 	if (!tenths && !hundreds) {
@@ -85,6 +93,15 @@ function updateStringAndGetAmountID(hundreds, tenths, units, currentString) {
 
 	if (tenths !== 1 && units >= 2 && units <= 4) {
 		id = 2;
+
+		// checking (!hundreds && !tenths) because we handle cases
+		// where they're equal to `undefined` or `0`
+	} else if (!hundreds && !tenths && units === 1 && i !== 0) {
+		id = 1;
+	} else if (!hundreds && !tenths && units === 1 && i === 0) {
+		id = 0;
+	} else if (!hundreds && !tenths && !units) {
+		id = 0;
 	} else {
 		id = 3;
 	}
@@ -125,6 +142,7 @@ function generateWords(number) {
 				digits[3 * i + 1],
 				digits[3 * i],
 				words,
+				i,
 			);
 			words = updatedString + AMOUNTS[i][amountID];
 		}

@@ -29,32 +29,14 @@ test('it generates minus for negative number', t => {
 });
 
 test('should throw error for incorrect (NaN) argument provided', t => {
-	t.throws(
-		() => {
-			englishSpellingGenerator('abc');
-		},
-		null,
-		'Incorrect number provided',
-	);
-	t.throws(
-		() => {
-			englishSpellingGenerator('$%!');
-		},
-		null,
-		'Incorrect number provided',
-	);
-	t.throws(
-		() => {
-			englishSpellingGenerator('1xas13');
-		},
-		null,
-		'Incorrect number provided',
-	);
-	t.throws(
-		() => {
-			englishSpellingGenerator('1234xaf');
-		},
-		null,
-		'Incorrect number provided',
-	);
+	const cases = [
+		['abc', 'Incorrect number provided: abc'],
+		['$%!', 'Incorrect number provided: $%!'],
+		['1xas13', 'Incorrect number provided: 1xas13'],
+		['1234xaf', 'Incorrect number provided: 1234xaf'],
+	];
+	cases.forEach(([input, errorMessage]) => {
+		const error = t.throws(() => englishSpellingGenerator(input));
+		t.is(error.message, errorMessage);
+	});
 });

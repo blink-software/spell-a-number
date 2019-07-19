@@ -43,9 +43,14 @@ console.log(englishConverter(256)); // two hundred fifty-six
 # Tests
 
 ```bash
+$ npm install
 $ npm link
 $ npm test
 ```
+
+# Credits
+
+`spellit` is a rewrite of both [number-to-words](https://github.com/marlun78/number-to-words) for the English converter and [slownie.js](https://github.com/exu/slownie.js/blob/master/lib/slownie.js) for the Polish converter.
 
 # License
 

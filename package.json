@@ -1,5 +1,5 @@
 {
-  "name": "spellit",
+  "name": "spell-a-number",
   "version": "1.0.0",
   "description": "Number spelling",
   "main": "converter.js",
@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blink-software/spellit.git"
+    "url": "git+https://github.com/blink-software/spell-a-number.git"
   },
   "author": "Blink Software <hello@blinksoft.pl>",
   "bin": {
-    "spellit": "./cli.js"
+    "spell-a-number": "./cli.js"
   },
   "license": "ISC",
   "devDependencies": {

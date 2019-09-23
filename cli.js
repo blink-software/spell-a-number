@@ -1,25 +1,34 @@
 #!/usr/bin/env node
-const converter = require('./converter');
+const { converter, langs } = require('./converter');
 
-const number = process.argv[2];
-const lang = process.argv[3];
+const program = require('commander');
 
-function printHelp() {
-	console.log('\033[33m');
-	console.log('Usage:');
-	console.log('spellit <NUMBER> [en|pl]');
-	console.log('\033[32mCurrently supported languages: en, pl');
-	console.log('\033[0m');
+let number;
+
+program
+	.arguments('<number>')
+	.option('-l, --language <language>', 'a language to spell a number in (pl/en)', 'en')
+	.action(passedNumber => {
+		number = passedNumber;
+	}).argv;
+
+program.parse(process.argv);
+
+const { language } = program;
+
+if (number === undefined) {
+	console.error('Pass a number to spell\n');
+	program.outputHelp();
+	process.exit(1);
 }
 
 try {
-	const chosenConverter = converter(lang);
+	const chosenConverter = converter(language);
 
 	output = chosenConverter(number);
-
 	console.log(output);
 } catch (e) {
-	printHelp();
-
 	console.error(e);
+
+	program.outputHelp();
 }

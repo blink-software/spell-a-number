@@ -1,46 +1,59 @@
-# spellit
+# spell-a-number
 
-Spell numbers in Polish and English both via CLI and in JavaScript.
+A package that spells integers and floats in multiple languages. Currently 
+supported are:
 
-# Installation
+ * Polish
+ * English
 
-```bash
-$ npm install spellit
+## Description
 
-# or
+This project aims to solve the problem of incomplete implementations of number
+spelling, mostly in Polish converters, but we support multiple languages.
+The package also handles decimal parts.
 
-$ yarn add spellit
+Thoroughly tested with many manually and automatically generated test cases that
+check whether the most-known edge cases are covered.
 
-# if you also want the CLI version
+Works as a JavaScript module and a terminal command.
 
-$ npm i -g spellit
+## Installation
 
-# or
-
-$ yarn global add spellit
-```
-
-# Basic Usage
-
-### CLI
+If you want to be able to use the `spell-a-number` terminal command, install the
+package globally.
 
 ```bash
-$ spellit <number> [en/pl] # english by default
+$ npm install -g spell-a-number
 ```
+
+Otherwise, the usual install command is enough.
+
+```bash
+$ npm install spell-a-number
+```
+
+## Usage
 
 ### JavaScript
 
 ```js
-const spellit = require('spellit');
+const converters = require("spell-a-number");
 
-const polishCoverter = spellit('pl');
-const englishConverter = spellit('en');
+const polishConverter = converters("pl");
+const englishConverter = converters("en");
 
-console.log(polishCoverter(256)); // dwieście pięćdziesiąt sześć
-console.log(englishConverter(256)); // two hundred fifty-six
+console.log(polishConverter(256)); // "dwieście pięćdziesiąt sześć"
+console.log(polishConverter(1001.01)); // "jeden tysiąc jeden 1/100"
+console.log(englishConverter(256)); // "two hundred fifty-six"
 ```
 
-# Tests
+### CLI
+
+```bash
+$ spell-a-number <number> [en/pl] # english by default
+```
+
+## Tests
 
 ```bash
 $ npm install
@@ -48,10 +61,16 @@ $ npm link
 $ npm test
 ```
 
-# Credits
+## Credits
 
-`spellit` is a rewrite of both [number-to-words](https://github.com/marlun78/number-to-words) for the English converter and [slownie.js](https://github.com/exu/slownie.js/blob/master/lib/slownie.js) for the Polish converter.
+`spell-a-number` is a rewrite of:
 
-# License
+ * [number-to-words](https://github.com/marlun78/number-to-words) (English)
+ * [slownie.js](https://github.com/exu/slownie.js/blob/master/lib/slownie.js) (Polish)
+
+We have fixed numerous bugs and added a lot of tests.
+
+
+## License
 
 ISC

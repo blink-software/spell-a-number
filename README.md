@@ -66,6 +66,7 @@ $ spell-a-number -l en 1337 # spells 1337 in English
 
 $ spell-a-number 1337 # spells 1337 in English
 ```
+
 ## Tests
 
 ```bash
@@ -73,6 +74,8 @@ $ npm install
 $ npm link
 $ npm test
 ```
+
+If you want to cleanup the symlink created by `npm link`, run `npm unlink`.
 
 ## Credits
 

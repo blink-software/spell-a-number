@@ -1,6 +1,6 @@
 import test from 'ava';
 
-const converter = require('../converter');
+const { converter } = require('../converter');
 
 const converter_blank = converter();
 const converter_en = converter('en');

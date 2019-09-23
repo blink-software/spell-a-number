@@ -1,9 +1,17 @@
 const { exec } = require('child_process');
-import test from 'ava';
+const test = require('ava');
 
-test.cb('it should print number spelling for the provided language', t => {
-	exec('/usr/lib/node_modules/spellit/cli.js 215 pl', (err, stdout) => {
+test.cb('it should print number spelling for the provided language (pl)', t => {
+	exec('/usr/lib/node_modules/spellit/cli.js -l pl 215', (err, stdout) => {
 		t.is(stdout, 'dwieście piętnaście\n');
+
+		t.end();
+	});
+});
+
+test.cb('it should print number spelling for the provided language (en)', t => {
+	exec('/usr/lib/node_modules/spellit/cli.js -l en 215', (err, stdout) => {
+		t.is(stdout, 'two hundred fifteen\n');
 
 		t.end();
 	});
@@ -17,35 +25,28 @@ test.cb('it should print number spelling in english if language not provided', t
 	});
 });
 
-test.cb('it should print help menu if not supported lang provided', t => {
-	exec('/usr/lib/node_modules/spellit/cli.js 215 xx', (err, stdout) => {
-		t.is(stdout.includes('Usage'), true);
-		t.is(stdout.includes('spellit <NUMBER> [en|pl]'), true);
+test.cb('it should print an unsupported language error message and help', t => {
+	exec('/usr/lib/node_modules/spellit/cli.js -l xxx 215', (err, stdout, stderr) => {
+		t.is(stderr.includes('Cannot find converter for language: xxx'), true);
+		t.is(stdout.includes('Usage: cli [options] <number>'), true);
 
 		t.end();
 	});
 });
 
-test.cb('it should print help menu if incorrect number provided', t => {
-	exec('/usr/lib/node_modules/spellit/cli.js 2asd12 en', (err, stdout) => {
-		t.is(stdout.includes('Usage'), true);
-		t.is(stdout.includes('spellit <NUMBER> [en|pl]'), true);
+test.cb('it should print an incorrect number provided error message and help', t => {
+	exec('/usr/lib/node_modules/spellit/cli.js 2asd12', (err, stdout, stderr) => {
+		t.is(stderr.includes('Incorrect number provided: 2asd12'), true);
+		t.is(stdout.includes('Usage: cli [options] <number>'), true);
 
 		t.end();
 	});
 });
 
-test.cb('it should print error if incorrect number provided', t => {
-	exec('/usr/lib/node_modules/spellit/cli.js 2asd12 en', (err, stdout, stderr) => {
-		t.true(stderr.includes('Incorrect number provided: 2asd12'), true);
-
-		t.end();
-	});
-});
-
-test.cb('it should print error if not supported language provided', t => {
-	exec('/usr/lib/node_modules/spellit/cli.js 212 xx', (err, stdout, stderr) => {
-		t.true(stderr.includes('Cannot find converter for language: xx'), true);
+test.cb('it should print a no number provided error message and help', t => {
+	exec('/usr/lib/node_modules/spellit/cli.js', (err, stdout, stderr) => {
+		t.is(stderr.includes('Pass a number to spell'), true);
+		t.is(stdout.includes('Usage: cli [options] <number>'), true);
 
 		t.end();
 	});

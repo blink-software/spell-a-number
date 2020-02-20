@@ -1,21 +1,26 @@
 {
-  "name": "spellit",
+  "name": "spell-a-number",
   "version": "1.0.0",
   "description": "Number spelling",
-  "main": "cli.js",
+  "main": "converter.js",
   "scripts": {
-    "test": "ava --watch"
+    "test": "ava",
+    "test:watch": "ava --watch"
   },
   "repository": {
     "type": "git",
-    "url": "https://git.blinksoft.pl/wojciechkalebasiak/slownie"
+    "url": "git+https://github.com/blink-software/spell-a-number.git"
   },
-  "author": "",
+  "author": "Blink Software <hello@blinksoft.pl>",
   "bin": {
-    "spellit": "./cli.js"
+    "spell-a-number": "./cli.js"
   },
   "license": "ISC",
   "devDependencies": {
-    "ava": "^1.2.1"
+    "ava": "^1.2.1",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "commander": "^3.0.1"
   }
 }

@@ -1,6 +1,6 @@
 import test from 'ava';
 
-const converter = require('../converter');
+const { converter } = require('../converter');
 
 const converter_blank = converter();
 const converter_en = converter('en');
@@ -19,9 +19,9 @@ test('it should return english spelling if no language specified', t => {
 });
 
 test('its should throw error if provided language not supported', t => {
-	t.throws(() => {
+	const error = t.throws(() => {
 		const converter_xx = converter('xx');
 		converter_xx(200);
-	}, null,
-	'Cannot find converter for language: xd');
+	});
+	t.is(error.message, 'Cannot find converter for language: xx');
 });

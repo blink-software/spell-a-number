@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { converter, langs } = require('./converter');
+const { converter } = require('./converter');
 
 const program = require('commander');
 

@@ -82,7 +82,7 @@ If you want to cleanup the symlink created by `npm link`, run `npm unlink`.
 `spell-a-number` is a rewrite of:
 
 -   [number-to-words](https://github.com/marlun78/number-to-words) (English)
--   [slownie.js](https://github.com/exu/slownie.js/blob/master/lib/slownie.js) (Polish)
+-   [slownie.js](https://github.com/exu/slownie.js) (Polish)
 
 We have fixed numerous bugs and added a lot of tests.
 

@@ -1404,11 +1404,16 @@ test('it generates correct string for given number', t => {
 });
 
 test('it generates decimal fraction if number is not integer', t => {
+	const allNonZeroTwoDigitDecimalFractions = Array.from({ length: 99 }).map((_, number) => {
+		const paddedDecimalFraction = (number + 1).toString().padStart(2, '0');
+
+		const value = `0.${paddedDecimalFraction}`;
+
+		return [Number(value), `zero ${paddedDecimalFraction}/100`];
+	});
+
 	const cases = [
-		[0.33, 'zero 33/100'],
-		[2.45, 'dwa 45/100'],
-		[35.12, 'trzydzieści pięć 12/100'],
-		[122.45, 'sto dwadzieścia dwa 45/100'],
+		...allNonZeroTwoDigitDecimalFractions,
 		[1245.689, 'jeden tysiąc dwieście czterdzieści pięć 69/100'],
 	];
 

@@ -19,9 +19,9 @@ function parsedAndValid(number) {
 
 function getDecimalPart(number) {
 	const decimal = Math.abs(number % 1);
-	const decimalWords = (decimal.toPrecision(2) * 100).toString() + '/100';
+	const decimalWords = Math.round(decimal.toPrecision(2) * 100);
 
-	return decimalWords;
+	return decimalWords.toString().padStart(2, '0') + '/100';
 }
 
 function getDecimalIfNeeded(number) {

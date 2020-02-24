@@ -1414,6 +1414,9 @@ test('it generates decimal fraction if number is not integer', t => {
 
 	const cases = [
 		...allNonZeroTwoDigitDecimalFractions,
+		[2.45, 'dwa 45/100'],
+		[35.12, 'trzydzieści pięć 12/100'],
+		[122.45, 'sto dwadzieścia dwa 45/100'],
 		[1245.689, 'jeden tysiąc dwieście czterdzieści pięć 69/100'],
 	];
 
